@@ -47,6 +47,17 @@ class TestLSystem(unittest.TestCase):
                            [0,  0,  0]]
         self.assertEqual(points, expected_points)
 
+    def test_generate_points_stack(self):
+        ls = lsystem.LSystem("F[>F]F", {})
+
+        points = [x for x in ls.GeneratePoints(90, 10)]
+        expected_points = [[0, 0, 0],
+                           [10,  0,  0],
+                           [10,  10,  0],
+                           lsystem.DONT_CONNECT,
+                           [10, 0, 0],
+                           [20, 0, 0]]
+        self.assertEqual(points, expected_points)
 
 if __name__ == '__main__':
     unittest.main()

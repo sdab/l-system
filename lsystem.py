@@ -82,6 +82,13 @@ class LSystem:
                 # Rotate direction by -angle along z axis
                 rotation = quaternion.from_euler_angles(numpy.array(Z_AXIS) * -math.radians(angle))
                 direction = direction * rotation
+            if c == '[':
+                stack.append((point, direction))
+                print("pushing to stack", point, direction)
+            if c == ']':
+                (point, direction) = stack.pop()
+                yield DONT_CONNECT
+                yield(point.tolist())
         
 
 

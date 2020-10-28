@@ -1,0 +1,3 @@
+# Deps
+pip install numpy
+pip install numpy-quaternion

@@ -62,6 +62,26 @@ class LSystem:
                 # Rotate direction by angle along x axis
                 rotation = quaternion.from_euler_angles(numpy.array(X_AXIS) * math.radians(angle))
                 direction = direction * rotation
+            if c == "<":
+                # Rotate direction by -angle along x axis
+                rotation = quaternion.from_euler_angles(numpy.array(X_AXIS) * -math.radians(angle))
+                direction = direction * rotation
+            if c == "^":
+                # Rotate direction by angle along y axis
+                rotation = quaternion.from_euler_angles(numpy.array(Y_AXIS) * -math.radians(angle))
+                direction = direction * rotation
+            if c == "&":
+                # Rotate direction by -angle along y axis
+                rotation = quaternion.from_euler_angles(numpy.array(Y_AXIS) * math.radians(angle))
+                direction = direction * rotation
+            if c == "+":
+                # Rotate direction by angle along z axis
+                rotation = quaternion.from_euler_angles(numpy.array(Z_AXIS) * math.radians(angle))
+                direction = direction * rotation
+            if c == "-":
+                # Rotate direction by -angle along z axis
+                rotation = quaternion.from_euler_angles(numpy.array(Z_AXIS) * -math.radians(angle))
+                direction = direction * rotation
         
 
 

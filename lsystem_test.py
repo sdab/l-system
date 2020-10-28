@@ -35,5 +35,18 @@ class TestLSystem(unittest.TestCase):
         expected_points = [[0, 0, 0], [10,  0,  0], [10,  10,  0], [0, 10, 0], [0, 0, 0]]
         self.assertEqual(points, expected_points)
 
+        ls = lsystem.LSystem(">F<<F+F--F^F&&F", {})
+
+        points = [x for x in ls.GeneratePoints(90, 10)]
+        expected_points = [[0, 0, 0],
+                           [0,  10,  0],
+                           [0,  0,  0],
+                           [10,  0,  0],
+                           [0,  0,  0],
+                           [0,  0,  10],
+                           [0,  0,  0]]
+        self.assertEqual(points, expected_points)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -54,7 +54,7 @@ class LSystem:
         stack = deque()
         
         for c in self.current_grammar:
-            if c == "F":
+            if c == "F" or c == "G":
                 # Move forward by taking a "step" in the current direction.
                 point = numpy.round(point + quaternion.rotate_vectors(direction, step), 2)
                 yield point.tolist()

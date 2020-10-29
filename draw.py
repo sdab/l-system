@@ -23,3 +23,4 @@ def draw_points(points, img_dimension, color=COLOR, width=WIDTH):
         prev = (x, y)
 
     im.show()
+

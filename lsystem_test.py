@@ -7,22 +7,22 @@ class TestLSystem(unittest.TestCase):
         ls = lsystem.LSystem("F", {"F": "FF"})
         
         self.assertEqual(ls.current_grammar, "F")
-        ls._IterateGrammar()
+        ls.IterateGrammar()
         self.assertEqual(ls.current_grammar, "FF")
-        ls._IterateGrammar()
+        ls.IterateGrammar()
         self.assertEqual(ls.current_grammar, "FFFF")
 
         # Case with variable with no rule
         ls = lsystem.LSystem("F", {"F": "FX"})
         self.assertEqual(ls.current_grammar, "F")
-        ls._IterateGrammar()
+        ls.IterateGrammar()
         self.assertEqual(ls.current_grammar, "FX")
-        ls._IterateGrammar()
+        ls.IterateGrammar()
         self.assertEqual(ls.current_grammar, "FXX")
 
     def test_generate_points(self):
         ls = lsystem.LSystem("F", {"F": "FF"})
-        ls._IterateGrammar()
+        ls.IterateGrammar()
 
         points = [x for x in ls.GeneratePoints(30, 10)]
         expected_points = [[0, 0, 0], [10,  0,  0], [20,  0,  0]]

@@ -29,7 +29,7 @@ class LSystem:
         self.current_grammar = axiom
         self.rules = rules
 
-    def _IterateGrammar(self, iterations=1):
+    def IterateGrammar(self, iterations=1):
         def sub(x):
             if x in self.rules:
                 return self.rules[x]

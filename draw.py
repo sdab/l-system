@@ -5,7 +5,7 @@
 from PIL import Image, ImageDraw
 
 # Forest Green RGP tuple
-COLOR = (34, 139, 34)
+COLOR = (0, 139, 139)
 WIDTH = 1
 
 def draw_points(points, img_dimension, color=COLOR, width=WIDTH):

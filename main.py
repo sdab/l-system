@@ -6,6 +6,8 @@ import utils
 # PARAMETERS
 IMG_HEIGHT = 1280
 IMG_WIDTH = 1920
+IMG_HEIGHT = 200
+IMG_WIDTH = 200
 
 def draw_2d_lsystem(axiom, rules, angle, iterations):
     ls = lsystem.LSystem(axiom, rules)
@@ -38,7 +40,7 @@ def detect_image_size(points):
     
 if __name__ == "__main__":
     # Create koch snowflake
-    draw_2d_lsystem("F--F--F", {"F": "F+F--F+F"}, 60, 4)
+    draw_2d_lsystem("F--F--F", {"F": "F+F--F+F"}, 60, 5)
     # Create hilbert curve
     draw_2d_lsystem("A", {"A": "-BF+AFA+FB-", "B": "+AF-BFB-FA+"}, 90, 6)
     # Serpinski arrowhead triangle

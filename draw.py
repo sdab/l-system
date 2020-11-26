@@ -3,11 +3,18 @@
 # to simulate the Logo Turtle system.
 
 from PIL import Image, ImageDraw
+import imageio
 
 # Forest Green RGP tuple
 COLOR = (0, 139, 139)
 WIDTH = 1
+# TODO: autodetect based on image size
+#WIDTH = 10
 
+def show_points(points, img_dimension, color=COLOR, width=WIDTH):
+    im = draw_points(points, img_dimension, color, width)
+    im.show()
+    
 def draw_points(points, img_dimension, color=COLOR, width=WIDTH):
     im= Image.new("RGB", img_dimension, "#FFFFFF")
     draw = ImageDraw.Draw(im)
@@ -22,5 +29,8 @@ def draw_points(points, img_dimension, color=COLOR, width=WIDTH):
             draw.line((xx, yy, x, y), fill=color, width=width)
         prev = (x, y)
 
-    im.show()
+    return im
 
+def write_gif(images, path):
+    imageio.mimsave(path, images, duration=0.5)
+    

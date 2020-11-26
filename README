@@ -1,8 +1,5 @@
 # Deps
-pip install numpy
-pip install numpy-quaternion
-pip install Pillow
-
+pip install numpy numpy-quaternion Pillow imageio numba scipy
 
 sudo apt install nomacs
 sudo ln -s /usr/bin/nomacs /usr/bin/display

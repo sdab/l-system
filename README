@@ -1,3 +1,8 @@
 # Deps
 pip install numpy
 pip install numpy-quaternion
+pip install Pillow
+
+
+sudo apt install nomacs
+sudo ln -s /usr/bin/nomacs /usr/bin/display

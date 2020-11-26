@@ -59,6 +59,7 @@ if __name__ == "__main__":
     #gif_2d_lsystem("A", {"A": "-BF+AFA+FB-", "B": "+AF-BFB-FA+"}, 90, 6)
     # Serpinski arrowhead triangle
     #draw_2d_lsystem("F", {"F": "G-F-G", "G": "F+G+F"}, 60, 9)
-    # TODO: seems broken, need to debug
-    gif_2d_lsystem("F", {"F": "G-F-G", "G": "F+G+F"}, 60, 9)
+    # Note: I can't get gif viewers to display sizes past iteration 8
+    # though image viewers can see the frames fine.
+    gif_2d_lsystem("F", {"F": "G-F-G", "G": "F+G+F"}, 60, 8)
 

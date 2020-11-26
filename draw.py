@@ -7,9 +7,9 @@ import imageio
 
 # Forest Green RGP tuple
 COLOR = (0, 139, 139)
-WIDTH = 1
+#WIDTH = 1
 # TODO: autodetect based on image size
-#WIDTH = 10
+WIDTH = 10
 
 def show_points(points, img_dimension, color=COLOR, width=WIDTH):
     im = draw_points(points, img_dimension, color, width)

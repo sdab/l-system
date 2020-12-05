@@ -8,6 +8,8 @@ import utils
 IMG_HEIGHT = 200
 IMG_WIDTH = 200
 
+GIF_OUT_DIR="/tmp/"
+
 def draw_2d_lsystem(axiom, rules, angle, iterations):
     ls = lsystem.LSystem(axiom, rules)
     ls.IterateGrammar(iterations)
@@ -21,7 +23,7 @@ def draw_2d_lsystem(axiom, rules, angle, iterations):
     # Draw it
     draw.show_points(points2D, (width, height))
 
-def gif_2d_lsystem(axiom, rules, angle, iterations):
+def gif_2d_lsystem(name, axiom, rules, angle, iterations):
     ls = lsystem.LSystem(axiom, rules)
     all_points = []
     # We need to get every iteration separately as well
@@ -47,19 +49,28 @@ def gif_2d_lsystem(axiom, rules, angle, iterations):
 
         im = draw.draw_points(points2D, (width, height))
         images.append(im)
-    # TODO: don't hardcode path
-    draw.write_gif(images, "/tmp/fractal.gif")
+    draw.write_gif(images, GIF_OUT_DIR+name+".gif")
 
-if __name__ == "__main__":
+def draw_2D():
     # Create koch snowflake
-    #draw_2d_lsystem("F--F--F", {"F": "F+F--F+F"}, 60, 5)
-    #gif_2d_lsystem("F--F--F", {"F": "F+F--F+F"}, 60, 5)
+    draw_2d_lsystem("F--F--F", {"F": "F+F--F+F"}, 60, 5)
+
     # Create hilbert curve
-    #draw_2d_lsystem("A", {"A": "-BF+AFA+FB-", "B": "+AF-BFB-FA+"}, 90, 6)
-    #gif_2d_lsystem("A", {"A": "-BF+AFA+FB-", "B": "+AF-BFB-FA+"}, 90, 6)
+    draw_2d_lsystem("A", {"A": "-BF+AFA+FB-", "B": "+AF-BFB-FA+"}, 90, 6)
+
     # Serpinski arrowhead triangle
-    #draw_2d_lsystem("F", {"F": "G-F-G", "G": "F+G+F"}, 60, 9)
+    draw_2d_lsystem("F", {"F": "G-F-G", "G": "F+G+F"}, 60, 9)
+
+def gen_gifs():
+    # Create koch snowflake
+    gif_2d_lsystem("snowflake", "F--F--F", {"F": "F+F--F+F"}, 60, 5)
+    # Create hilbert curve
+    gif_2d_lsystem("curve", "A", {"A": "-BF+AFA+FB-", "B": "+AF-BFB-FA+"}, 90, 6)
+    # Serpinski arrowhead triangle
     # Note: I can't get gif viewers to display sizes past iteration 8
     # though image viewers can see the frames fine.
-    gif_2d_lsystem("F", {"F": "G-F-G", "G": "F+G+F"}, 60, 8)
-
+    gif_2d_lsystem("serpinski", "F", {"F": "G-F-G", "G": "F+G+F"}, 60, 8)
+    
+if __name__ == "__main__":
+    #draw_2D()
+    gen_gifs()
